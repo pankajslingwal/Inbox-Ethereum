@@ -37,11 +37,20 @@ describe('Inbox',() => {
         const message = await inbox.methods.message().call();
         assert.equal(message, 'Hi There');
     });
+
+    it('can change the message', async ()=> {
+        await inbox.methods.setMessage('pankaj test').send({from: accounts[0]});
+        const message = await inbox.methods.message().call();
+        assert.equal(message, 'pankaj test');
+    });
 }); 
+
+//https://rinkeby.infura.io/v3/e569d7bdf17344e2876af5384559c5e7
+//exact front interest phrase return chase buyer museum mask gesture winner ladder
 
 // class Car {
 //     park() {
-//         return 'stopped';
+//         return 'stopped';    
 //     }
 
 //     drive() {
